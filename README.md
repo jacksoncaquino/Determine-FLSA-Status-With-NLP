@@ -1,5 +1,5 @@
-# Determine FLSA Status With Categorical Data
-Using predictive analytics based on existing jobs within our job structure, these models will predict FLSA status for overtime eligibility. Coded in Python with Jupyter Notebooks.
+# Determine FLSA Status With Natural Language Processing
+Using predictive analytics based on job descriptions and natural language processing, these models will predict FLSA status for overtime eligibility, this time with 4 models instead of 2. Coded in Python with Jupyter Notebooks
 
 ## What is the FLSA?
 Fair Labor Standards Act
@@ -20,13 +20,16 @@ We incur several costs, such as back pay for unpaid overtime, attorney’s fees,
 When a new job profile needs to be created, HR consults with legal to determine exemption status. Legal or HR reads the job description, determines exemption status, and responds to the case.
 
 ## How does this project intend to change this process?
-After taking a dataset with about 2000 rows and taking all the steps to clean the data and prepare for training, the model was split into training data (80% of the data) and testing data (the remainder). Two models were created: a decision tree and a logistic regression. 
+After taking a dataset with about 2000 rows and taking all the steps to clean the data and prepare for training, this time I used another report that contained job descriptions, tokenized and vectorized them and trained two additional models, one decision tree and one logistic regression, both based on the words of the job descriptions to determine overtime pay eligibility. The data was split into training data (80% of the data) and testing data (the remainder). 
 
 ## What are the results of the model?<br>
-• Decision tree alone: 94% accuracy<br>
-• Logistic regression alone: 82% accuracy<br>
-• Combining both is the safest<br>
-• Legal reviews would fall by 83% (only when the two models do not agree)<br>
-• With the two models and legal review, accuracy would be 96.4%<br>
+• Decision tree alone (previous project): 94% accuracy<br>
+• Logistic regression alone (previous project): 82% accuracy<br>
+• Combining both was the safest, but models agreed and got wrong in 3.6% of the cases<br>
+• With the NLP models, the number of cases that the 4 models agreed to get the wrong answer fell to 1.5%<br>
+• Cases where the 4 models did not agree: 16% (legal review)<br>
 
-I still do not consider this accuracy good enough for model deployment because the 3.6% of the new jobs the two models would confidently agree and would get it wrong make me nervous about the legal risk, so at the end I decided to work on another project to use the job descriptions and natural language processing (NLP) to train other models to see if the accuracy would go up.
+## What would be the Next Steps to implement these models?
+• When implementing the models, run in parallel for six months to keep measuring accuracy<br>
+• After that, add spot audit for 16% of the cases where all four models agree<br>
+• Reserve money from these savings for legal fund<br>
